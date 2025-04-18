@@ -38,5 +38,5 @@ body, html {
     width: 0%;
     background: #0f0;
     animation-name: loading;
-    animation-duration: 5s;
+    animation-duration: 15s;
 }
