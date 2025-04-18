@@ -24,6 +24,7 @@ function loadConfigs() {
 
     setTimeout(() => {
         const language = detectLanguage(); 
+        const sequence = phrases[language] || phrases["en-US"];
         if (phrases.hasOwnProperty(language)) {
             phrases[language].forEach((item, index) => {
                 setTimeout(() => {
@@ -39,6 +40,12 @@ function loadConfigs() {
                             progress.style.backgroundColor = "#333";
                             messages.style.color = "#111";
                         }, 1200);
+                    }
+                    if (index == sequence.length - 1) {
+                        setTimeout(() => {
+                            document.getElementById("loader").style.display = "none";
+                            document.getElementById("main-content").style.display = "block";
+                        }, 3000);
                     }
                 }, index * 3000);
             });
