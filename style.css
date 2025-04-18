@@ -7,12 +7,14 @@
 body, html {
     font-family: 'Courier New', monospace;
     height: 100%;
+    width: 100%;
     color: #0f0;
     background: #000;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 #loader {
@@ -26,6 +28,11 @@ body, html {
     margin: 20px auto;
     position: relative;
     background: rgba(0, 255, 0, 0.1);
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+#loading-text {
+    transition: color 0.5s ease;
 }
 
 @keyframes loading {
@@ -41,4 +48,5 @@ body, html {
     animation-duration: 15s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
+    transition: background-color 0.5s ease;
 }

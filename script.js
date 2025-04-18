@@ -18,7 +18,7 @@ function detectDarkMode() {
     }
 }
  
-function writesText() {
+function loadConfigs() {
     const placeholder = document.getElementById("loading-text");
     placeholder.innerHTML = "Detecting system language...";
 
@@ -28,10 +28,22 @@ function writesText() {
             phrases[language].forEach((item, index) => {
                 setTimeout(() => {
                     placeholder.innerHTML = item;
+                    if (index == 0 && detectDarkMode() == 0) {
+                        setTimeout(() => {
+                            document.body.style.backgroundColor = "#F8F8FF";
+                            const bar = document.querySelector(".loading-bar");
+                            const progress = document.querySelector(".progress");
+                            const messages = document.getElementById("loading-text");
+                            bar.style.borderColor = "#111";
+                            bar.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
+                            progress.style.backgroundColor = "#333";
+                            messages.style.color = "#111";
+                        }, 1200);
+                    }
                 }, index * 3000);
             });
         }
     }, 3000);
 } 
 
-writesText();
+loadConfigs();
