@@ -1,15 +1,13 @@
-phrases = {
-    "en-US": [
-        "Detecting dark mode preference...",
-        "Loading database...",
-        "Setting up interface...",
-        "Finishing it up..."
-    ]
-}
+import { phrases } from './resources.js';
 
 function detectLanguage() {
-    preference = navigator.language;
-    return preference;
+    const preference = navigator.language;
+    if (phrases.hasOwnProperty(preference)) {
+        return preference;
+    }
+    const baseLang = preference.split('-')[0];
+    const fallbackKey = Object.keys(phrases).find(key => key.startsWith(baseLang));
+    return fallbackKey || "en-US";
 }
 
 function detectDarkMode() {
@@ -21,11 +19,11 @@ function detectDarkMode() {
 }
  
 function writesText() {
-    placeholder = document.getElementById("loading-text");
+    const placeholder = document.getElementById("loading-text");
     placeholder.innerHTML = "Detecting system language...";
 
     setTimeout(() => {
-        language = detectLanguage(); 
+        const language = detectLanguage(); 
         if (phrases.hasOwnProperty(language)) {
             phrases[language].forEach((item, index) => {
                 setTimeout(() => {

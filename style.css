@@ -29,8 +29,8 @@ body, html {
 }
 
 @keyframes loading {
-    from { width: 0%; };
-    to { width: 100%; };
+    from { width: 0% }
+    to { width: 100% }
 }
 
 .progress {
@@ -39,4 +39,6 @@ body, html {
     background: #0f0;
     animation-name: loading;
     animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
 }

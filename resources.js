@@ -1,4 +1,4 @@
-phrases = {
+export const phrases = {
     "en-US": [
         "Detecting dark mode preference...",
         "Loading database...",
