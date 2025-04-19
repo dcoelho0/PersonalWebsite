@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>...</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <div id="loader">
@@ -13,9 +14,22 @@
         </div>
         <p id="loading-text"></p>
     </div>    
-    <div id="main-content" style="display: none;"></div>
-    <script type="module" src="script.js"></script>
-    <div>
+    <div id="main-content-light" style="display: none;">
+	<div class="terminal-light">
+	
+	</div>
+	<div class="rpanel-light">
+	
+	</div>
     </div>
+    <div id="main-content-dark" style="display: none;">
+	<div class="terminal-dark">
+	
+	</div>
+	<div class="rpanel-dark">
+	
+	</div>
+    </div>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

@@ -1,13 +1,14 @@
 import { phrases } from './resources.js';
 
 function detectLanguage() {
+    // Detect the language and creates a fallback setting in case no equivalent is found
     const preference = navigator.language;
     if (phrases.hasOwnProperty(preference)) {
         return preference;
     }
     const baseLang = preference.split('-')[0];
     const fallbackKey = Object.keys(phrases).find(key => key.startsWith(baseLang));
-    return fallbackKey || "en-US";
+    return fallbackKey || "en-US"; // falls back to en-US if lang not found
 }
 
 function detectDarkMode() {
@@ -25,10 +26,13 @@ function loadConfigs() {
     setTimeout(() => {
         const language = detectLanguage(); 
         const sequence = phrases[language] || phrases["en-US"];
+	
+	// this if makes sure the language is detected on presets(resources.js) and displays the phrases 
         if (phrases.hasOwnProperty(language)) {
             phrases[language].forEach((item, index) => {
                 setTimeout(() => {
                     placeholder.innerHTML = item;
+		    // this if changes the dark theme to light theme if the user has preference for light mode
                     if (index == 0 && detectDarkMode() == 0) {
                         setTimeout(() => {
                             document.body.style.backgroundColor = "#F8F8FF";
@@ -41,10 +45,17 @@ function loadConfigs() {
                             messages.style.color = "#111";
                         }, 1200);
                     }
+		    // this if sets up the 'main-content' div on html doc which is the actual content of the website 
                     if (index == sequence.length - 1) {
                         setTimeout(() => {
-                            document.getElementById("loader").style.display = "none";
-                            document.getElementById("main-content").style.display = "block";
+			    // this if/else sets up the correct theme for the main-content div
+			    if (detectDarkMode() == 0) {
+			        document.getElementById("loader").style.display = "none";
+				document.getElementById("main-content-light").style.display = "block";
+			    } else {
+			        document.getElementById("loader").style.display = "none";
+				document.getElementById("main-content-dark").style.display = "block";
+			    }
                             document.title = "dcoelho0";
                         }, 3000);
                     }
