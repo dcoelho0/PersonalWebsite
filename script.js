@@ -1,4 +1,5 @@
 import { phrases } from './resources.js';
+import { typeLine, terminalLine } from './terminal.js';
 
 function detectLanguage() {
     // Detect the language and creates a fallback setting in case no equivalent is found
@@ -52,6 +53,7 @@ function loadConfigs() {
 			    if (detectDarkMode() == 0) {
 			        document.getElementById("loader").style.display = "none";
 				document.getElementById("main-content-light").style.display = "block";
+				typeLine(terminalLine, "terminal-light-line", 40);
 			    } else {
 			        document.getElementById("loader").style.display = "none";
 				document.getElementById("main-content-dark").style.display = "block";
@@ -66,3 +68,4 @@ function loadConfigs() {
 } 
 
 loadConfigs();
+
