@@ -53,6 +53,31 @@
     50% { border-color: #111; }
 }
 
+.terminal-line {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+    margin-left: 4px;
+    width: 80%;
+}
+
+.terminal-output {
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    margin-left: 4px;
+}
+
 
 .rpanel-light {
 
